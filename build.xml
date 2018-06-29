@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="FtpUpload" default="main">
+    <scp 
+        username="${ftp.destination.username}"
+        password="${ftp.destination.password}"
+        host="${ftp.destination.host}" 
+        todir="${ftp.destination.dir}">
+        <fileset dir="./">
+            <include name="**/*.*" />
+            <exclude name="build.xml" />
+            <exclude name="scp.props" />
+            <exclude name="composer.json" />
+            <exclude name="composer.lock" />
+            <exclude name="Tests" />
+        </fileset>
+    </scp>
+    <target name="main">
+        <echo>Wgrywanie projektu zakończone pomyślnie</echo>
+    </target>  
+</project>
